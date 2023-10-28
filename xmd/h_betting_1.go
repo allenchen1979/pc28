@@ -1,5 +1,7 @@
 package xmd
 
+import "fmt"
+
 type XBet struct {
 	Status int    `json:"status"`
 	Msg    string `json:"msg"`
@@ -43,7 +45,7 @@ func hBetting1(issue string, betGold int, result int, userBase UserBase) error {
 	}
 
 	if betResponse.Status != 0 {
-		return err
+		return fmt.Errorf("%d %s", betResponse.Status, betResponse.Msg)
 	}
 
 	return nil

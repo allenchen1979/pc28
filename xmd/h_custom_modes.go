@@ -1,6 +1,7 @@
 package xmd
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -47,7 +48,7 @@ func hCustomModes(userBase UserBase) (int, error) {
 	}
 
 	if betResponse.Status != 0 {
-		return 0, err
+		return 0, fmt.Errorf("%d %s", betResponse.Status, betResponse.Msg)
 	}
 
 	m1 := betResponse.Data.Items[0]

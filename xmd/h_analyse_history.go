@@ -1,5 +1,10 @@
 package xmd
 
+import (
+	"errors"
+	"fmt"
+)
+
 type QHistoryItem struct {
 	Issue  string `json:"issue"`
 	Result string `json:"lresult"`
@@ -50,11 +55,11 @@ func hAnalyseHistory(pageSize int, userBase UserBase) ([]QHistoryItem, error) {
 	}
 
 	if hisResponse.Status != 0 {
-		return nil, err
+		return nil, fmt.Errorf("%d %s", hisResponse.Status, hisResponse.Msg)
 	}
 
 	if len(hisResponse.Data.Items) < 1 {
-		return nil, err
+		return nil, errors.New("empty rows")
 	}
 
 	return hisResponse.Data.Items, nil

@@ -1,6 +1,7 @@
 package xmd
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -42,7 +43,7 @@ func hGetGold(userBase UserBase) (gold int, err error) {
 	}
 
 	if userBaseResponse.Status != 0 {
-		return gold, err
+		return gold, fmt.Errorf("%d %s", userBaseResponse.Status, userBaseResponse.Msg)
 	}
 
 	sGold := strings.ReplaceAll(userBaseResponse.Data.GoldEggs, ",", "")

@@ -1,5 +1,7 @@
 package xmd
 
+import "fmt"
+
 type XModesBettingRequest struct {
 	Issue  string `json:"issue"`
 	ModeId int    `json:"modeid"`
@@ -40,7 +42,7 @@ func hModesBetting(issue string, modeId int, userBase UserBase) error {
 	}
 
 	if betResponse.Status != 0 {
-		return err
+		return fmt.Errorf("%d %s", betResponse.Status, betResponse.Msg)
 	}
 
 	return nil
