@@ -35,7 +35,6 @@ type RunTime struct {
 
 type Config struct {
 	BetMode   BetMode   `json:"bet_mode"`
-	Secs      float64   `json:"secs"`
 	Sigma     float64   `json:"sigma"`
 	RunTimes  []RunTime `json:"run_times"`
 	Cookie    string    `json:"cookie"`

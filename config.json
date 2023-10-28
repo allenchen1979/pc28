@@ -1,6 +1,5 @@
 {
-  "bet_mode": "Custom | Mode All | Mode Only | Half",
-  "secs": 53.50,
+  "bet_mode": "Custom",
   "sigma": 1.0,
   "run_times": [
     {

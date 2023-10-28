@@ -9,7 +9,6 @@ import (
 )
 
 type Cache struct {
-	secs     float64
 	sigma    float64
 	userBase UserBase
 
@@ -35,7 +34,6 @@ func NewCache(dir string) (*Cache, error) {
 	)
 
 	cache := &Cache{
-		secs:     conf.Secs,
 		sigma:    conf.Sigma,
 		userBase: userBase,
 

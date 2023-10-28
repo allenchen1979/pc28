@@ -7,15 +7,10 @@ import (
 )
 
 func Run(cache *Cache) {
-	secs := cache.secs
+	secs := 53.50
 	if cache.userBase.BetMode.IsMode() {
 		secs = 42.50
 	}
-
-	log.Printf("可用的投注模式包括：\n  %s \n  %s \n  %s \n  %s \n", BetModeCustom, BetModeModeOnly, BetModeModeAll, BetModeHalf)
-	log.Printf("当前使用的投注模式为 %q \n", cache.userBase.BetMode)
-	log.Printf("当前使用的权重参数为 %.3f \n", cache.sigma)
-	log.Printf("当前设定的投注时间段：%q \n", cache.userBase.JoinString())
 
 	dua := time.Now().Sub(time.Now().Truncate(time.Minute))
 	log.Printf("在 %.4f 秒后开始运行投注 \n", secs-dua.Seconds())
@@ -26,7 +21,6 @@ func Run(cache *Cache) {
 	ticker := time.NewTicker(time.Minute)
 	defer ticker.Stop()
 
-	log.Println("自动投注正在运行中 ...")
 	for {
 		select {
 		case <-ticker.C:

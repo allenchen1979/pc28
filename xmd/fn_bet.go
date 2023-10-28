@@ -23,8 +23,6 @@ func fnBet(cache *Cache) error {
 		return err
 	}
 
-	log.Printf("第%s期：开奖结果为【%d】，当前账户金额【%d】 >>>>>> \n", strconv.Itoa(cache.issue), cache.result, surplus)
-
 	// Riddle
 	bets, aBets, err := fnRiddle(cache, issue)
 	if err != nil {
@@ -69,16 +67,9 @@ func fnBet(cache *Cache) error {
 		}
 	}
 
-	if m1Gold*2 <= 100 {
-		log.Printf("第%s期：最小投注额度【%d】小于设定额度【%d】不进行投注 ****** \n", issue, m1Gold*2, 100)
-		return nil
-	}
-
 	switch cache.userBase.BetMode {
 	case BetModeCustom:
-		coverage, err := betSingle(cache, issue, mrx, m1Gold, bets)
-
-		log.Printf("第%s期：投注覆盖率【%.3f%%】 !!!!!! \n", issue, coverage/10)
+		_, err := betSingle(cache, issue, mrx, m1Gold, bets)
 		if err != nil {
 			return err
 		}
