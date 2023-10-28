@@ -1,0 +1,19 @@
+{
+  "bet_mode": "Custom | Mode All | Mode Only | Half",
+  "secs": 53.50,
+  "sigma": 1.0,
+  "run_times": [
+    {
+      "start": "00:00",
+      "end": "23:59"
+    }
+  ],
+  "cookie": "<Browser 'Cookie'>",
+  "user_agent": "<Browser 'User-Agent'>",
+  "user_id": "<Browser Request Payload of 'User ID'>",
+  "token": "<Browser Request Payload of 'Token'>",
+  "unix": "<Browser Request Payload of User 'Unix'>",
+  "key_code": "<Browser Request Payload of 'Key Code'>",
+  "device_id": "<Browser Request Payload of 'Device ID'>",
+  "channel_id": "<Browser Request Payload of 'Channel ID'>"
+}
